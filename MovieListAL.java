@@ -17,6 +17,7 @@ public class MovieListAL
      */
     public MovieListAL(Movie[] movies)
     {
+        pool = new ArrayList<Movie>();
         for(int i = 0; i<movies.length; i++){
             pool.add(movies[i]);   
         }
@@ -46,12 +47,17 @@ public class MovieListAL
     /** 
      * get the movie with the highest rating within an ArrayList
      */
-    public Movie getHighestrating(ArrayList<Movie> movies)
+    public Movie getHighestRating(ArrayList<Movie> movies)
     {
-
-        
-        return null;
-        
+        Movie First = movies.get(0);
+        double first = movies.get(0).getRating();
+        for(int i = 1; i<movies.size(); i++){
+            if(movies.get(i).getRating()>first){
+                first = movies.get(i).getRating();
+                First = movies.get(i);
+            }
+        }
+        return First;
     }
     
     
@@ -63,10 +69,11 @@ public class MovieListAL
     public ArrayList<Movie> findHighestRatedByStudio()
     {
         ArrayList<Movie> highestRated = new ArrayList<Movie>();
+        highestRated.add(getHighestRating(getByStudio("Disney")));
+        highestRated.add(getHighestRating(getByStudio("Ghibli")));
+        highestRated.add(getHighestRating(getByStudio("Indy")));
         
-        // Your code goes here
-         return null;
-        // return highestRated;
+        return highestRated;
         
     }
 

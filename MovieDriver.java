@@ -9,7 +9,6 @@ import java.util.ArrayList;
  */
 public class MovieDriver
 {
-    
     public static void main(String[] args)
     {
         Movie moana   = new Movie("Moana", "Disney", 7.6, 2016);
@@ -32,12 +31,14 @@ public class MovieDriver
        
        MovieListAL movieList = new MovieListAL(movieArray);
        
-       ArrayList<Movie> highestRated = movieList.findHighestRatedByStudio();
+       /*ArrayList<Movie> highestRated = movieList.findHighestRatedByStudio();
        for (int i=0 ; i<highestRated.size() ; i++)
            System.out.println(highestRated.get(i));
-       
+       */
        System.out.println(movieList.getByStudio("Disney"));
-
+       System.out.println(movieList.getHighestRating
+       (movieList.getByStudio("Ghibli")));
+       System.out.println(movieList.findHighestRatedByStudio());
         
     }
     
